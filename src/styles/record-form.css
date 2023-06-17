@@ -1,3 +1,17 @@
+.record-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .record-form__title {
   font-size: 2rem;
+}
+
+.record-form input,
+.record-form textarea {
+  margin-left: 1em;
+}
+
+.record-form__submit {
+  width: 120px;
 }

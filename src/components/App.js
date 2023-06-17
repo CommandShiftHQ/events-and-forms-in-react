@@ -15,8 +15,8 @@ const App = () => {
           <RecordForm />
         </div>
         <div className="app__records-wrapper">
-          {records.map((record) => {
-            return <Record record={record} />;
+          {records.map((record, i) => {
+            return <Record key={i} record={record} />;
           })}
         </div>
       </div>
