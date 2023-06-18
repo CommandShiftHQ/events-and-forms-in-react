@@ -11,7 +11,9 @@ const RecordForm = () => {
   });
 
   const HandleInputChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
+    const { name, value, type, checked } = event.target;
+    const fieldValue = type === "checkbox" ? checked : value;
+    setFormData({ ...formData, [name]: fieldValue });
   };
 
   return (
