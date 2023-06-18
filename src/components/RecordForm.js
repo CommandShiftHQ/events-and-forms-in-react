@@ -1,23 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/record-form.css";
 
 const RecordForm = () => {
+  const [bandName, setBandName] = useState("");
+  const [albumName, setAlbumName] = useState("");
+  const [genre, setGenre] = useState("");
+  const [description, setDescription] = useState("");
+  const [onTour, setOnTour] = useState(false);
+
   return (
     <form className="record-form">
       <div className="record-form__title">Add New Record Form</div>
       <label>
         Band name:
-        <input type="text" placeholder="Enter band name" />
+        <input type="text" value={bandName} placeholder="Enter band name" />
       </label>
 
       <label>
         Album name:
-        <input type="text" placeholder="Enter album name" />
+        <input type="text" value={albumName} placeholder="Enter album name" />
       </label>
 
       <label>
         Genre:
-        <select>
+        <select value={genre}>
           <option>Alternative Rock</option>
           <option>Stoner Rock</option>
           <option>Indie Rock</option>
@@ -26,12 +32,12 @@ const RecordForm = () => {
 
       <label>
         Description:
-        <textarea type="text" />
+        <textarea type="text" value={description} />
       </label>
 
       <label>
         Are they on tour?
-        <input type="checkbox" />
+        <input type="checkbox" value={onTour} />
       </label>
 
       <button className="record-form__submit" type="submit">
