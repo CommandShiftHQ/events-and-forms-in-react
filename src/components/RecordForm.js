@@ -8,12 +8,22 @@ const RecordForm = () => {
   const [description, setDescription] = useState("");
   const [onTour, setOnTour] = useState(false);
 
+  const HandleInputChange = (event) => {
+    setBandName(event.target.value);
+  };
+
   return (
     <form className="record-form">
       <div className="record-form__title">Add New Record Form</div>
       <label>
         Band name:
-        <input type="text" value={bandName} placeholder="Enter band name" />
+        <input
+          type="text"
+          value={bandName}
+          onChange={HandleInputChange}
+          name="bandName"
+          placeholder="Enter band name"
+        />
       </label>
 
       <label>
