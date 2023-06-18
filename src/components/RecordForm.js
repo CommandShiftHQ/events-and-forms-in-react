@@ -5,7 +5,7 @@ const RecordForm = () => {
   const [formData, setFormData] = useState({
     bandName: "",
     albumName: "",
-    genre: "",
+    genre: "Alternative Rock",
     description: "",
     onTour: false,
   });
@@ -16,8 +16,13 @@ const RecordForm = () => {
     setFormData({ ...formData, [name]: fieldValue });
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData);
+  };
+
   return (
-    <form className="record-form">
+    <form className="record-form" onSubmit={handleSubmit}>
       <div className="record-form__title">Add New Record Form</div>
       <label>
         Band name:
@@ -48,9 +53,9 @@ const RecordForm = () => {
           onChange={HandleInputChange}
           name="genre"
         >
-          <option>Alternative Rock</option>
-          <option>Stoner Rock</option>
-          <option>Indie Rock</option>
+          <option value="Alternative Rock">Alternative Rock</option>
+          <option value="Stoner Rock">Stoner Rock</option>
+          <option value="Indie Rock">Indie Rock</option>
         </select>
       </label>
 
