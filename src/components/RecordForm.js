@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/record-form.css";
 
-const RecordForm = () => {
+const RecordForm = ({ addNewRecord }) => {
   const [formData, setFormData] = useState({
     bandName: "",
     albumName: "",
@@ -18,7 +18,7 @@ const RecordForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
+    addNewRecord(formData);
   };
 
   return (

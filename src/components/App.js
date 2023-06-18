@@ -6,13 +6,17 @@ import Record from "./Record";
 
 const App = () => {
   const [records, setRecords] = useState(initialData);
+  const addNewRecord = (record) => {
+    setRecords((prev) => [...prev, record]);
+  };
+
   return (
     <div className="app">
       <div className="app__background-wrap" />
       <div className="app__foreground-wrap">
         <div className="app__title">Events and forms in React</div>
         <div className="app__form-wrapper">
-          <RecordForm />
+          <RecordForm addNewRecord={addNewRecord} />
         </div>
         <div className="app__records-wrapper">
           {records.map((record, i) => {
