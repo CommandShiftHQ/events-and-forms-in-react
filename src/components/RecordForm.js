@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import "../styles/record-form.css";
 
 const RecordForm = () => {
-  const [bandName, setBandName] = useState("");
-  const [albumName, setAlbumName] = useState("");
-  const [genre, setGenre] = useState("");
-  const [description, setDescription] = useState("");
-  const [onTour, setOnTour] = useState(false);
+  const [formData, setFormData] = useState({
+    bandName: "",
+    albumName: "",
+    genre: "",
+    description: "",
+    onTour: false,
+  });
 
   const HandleInputChange = (event) => {
-    setBandName(event.target.value);
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
   return (
@@ -19,7 +21,7 @@ const RecordForm = () => {
         Band name:
         <input
           type="text"
-          value={bandName}
+          value={formData.bandName}
           onChange={HandleInputChange}
           name="bandName"
           placeholder="Enter band name"
@@ -28,12 +30,22 @@ const RecordForm = () => {
 
       <label>
         Album name:
-        <input type="text" value={albumName} placeholder="Enter album name" />
+        <input
+          type="text"
+          value={formData.albumName}
+          onChange={HandleInputChange}
+          name="albumName"
+          placeholder="Enter album name"
+        />
       </label>
 
       <label>
         Genre:
-        <select value={genre}>
+        <select
+          value={formData.genre}
+          onChange={HandleInputChange}
+          name="genre"
+        >
           <option>Alternative Rock</option>
           <option>Stoner Rock</option>
           <option>Indie Rock</option>
@@ -42,12 +54,22 @@ const RecordForm = () => {
 
       <label>
         Description:
-        <textarea type="text" value={description} />
+        <textarea
+          type="text"
+          value={formData.description}
+          onChange={HandleInputChange}
+          name="description"
+        />
       </label>
 
       <label>
         Are they on tour?
-        <input type="checkbox" value={onTour} />
+        <input
+          type="checkbox"
+          value={formData.onTour}
+          onChange={HandleInputChange}
+          name="onTour"
+        />
       </label>
 
       <button className="record-form__submit" type="submit">
